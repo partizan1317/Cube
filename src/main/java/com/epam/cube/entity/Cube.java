@@ -2,17 +2,17 @@ package com.epam.cube.entity;
 
 public class Cube {
 
-    private final Point point;
-    private final double line;
+    private Point point;
+    private double line;
 
     public Cube() {
         point = new Point();
         line = 0;
     }
 
-    public Cube(double line, Point point) {
-        this.line = line;
+    public Cube(Point point, double line) {
         this.point = point;
+        this.line = line;
     }
 
     public Point getPoint() {
@@ -23,9 +23,17 @@ public class Cube {
         return line;
     }
 
+    public void setPoint(Point point) {
+        this.point = point;
+    }
+
+    public void setLine(double line) {
+        this.line = line;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o){
+        if (this == o) {
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
@@ -47,4 +55,5 @@ public class Cube {
     public String toString() {
         return "Cube {" + " point= " + point + ", line= " + line + "}";
     }
+
 }

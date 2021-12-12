@@ -7,18 +7,28 @@ import org.junit.Test;
 
 public class CubeCreatorTest {
 
-    private static final String VALID_LINE = "4.0 1.0 2.0 3.0";
+    private static final String VALID_LINE = "1.0 2.0 3.0 4.0";
+    private static final String INVALID_LINE = "1.0 2.0 3.0 -4.0";
 
-    private final CubeCreator cubeCreator = new CubeCreator();
+    private final CubeCreator creator = new CubeCreator();
 
     @Test
     public void testCreateShouldCreateCubeWhenDataIsValid() {
         //given
-        Cube expectedCube = new Cube(4.0, new Point(1.0,2.0,3.0));
+        Cube expectedCube = new Cube(new Point(1.0,2.0,3.0),4.0);
         //when
-        Cube createdCube = cubeCreator.create(VALID_LINE);
+        Cube createdCube = creator.create(VALID_LINE);
+        //then
+        Assert.assertEquals(expectedCube, createdCube);
+    }
+
+    @Test
+    public void testCreateShouldCreateCubeWhenDataIsInvalid() {
+        //given
+        Cube expectedCube = new Cube(new Point(1.0,2.0,3.0),-4.0);
+        //when
+        Cube createdCube = creator.create(INVALID_LINE);
         //then
         Assert.assertEquals(expectedCube, createdCube);
     }
 }
-

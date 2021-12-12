@@ -22,14 +22,14 @@ public class DataReader {
             File file = new File(path);
             BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
             String line = bufferedReader.readLine();
-            while (line != null){
+            while (line != null) {
                 result.add(line);
                 line = bufferedReader.readLine();
             }
         } catch (Exception e){
-            LOGGER.error("Caught " + e);
             DataException dataException = new DataException(e.getMessage(), e);
             LOGGER.throwing(dataException);
+            throw dataException;
         }
         return result;
     }

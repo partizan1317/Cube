@@ -51,4 +51,10 @@ public final class Point {
         result = 31 * result + (int) zCoordinate;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Point {" + " x coordinate= " + xCoordinate + ", y coordinate= " + yCoordinate +
+                ", z coordinate= " + zCoordinate;
+    }
 }

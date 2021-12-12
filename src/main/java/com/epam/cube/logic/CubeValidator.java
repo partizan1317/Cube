@@ -6,9 +6,6 @@ public class CubeValidator {
 
     private static final String CUBE_LINE_REGEX = "\\d+\\.\\d+( (-)?\\d+\\.\\d+){3}";
 
-    public CubeValidator() {
-    }
-
     public boolean isValidLine(String line){
         return Pattern.matches(CUBE_LINE_REGEX, line);
     }
